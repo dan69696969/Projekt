@@ -1,0 +1,23 @@
+fileFormatVersion: 2
+guid: 0a7ec1cf08fe5e44bab365bbc09f57a2
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontNames:
+  - SANDRA
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: 09b8e4adb5c2dcd48b4366dc69270e48, type: 3}
+  - {fileID: 12800000, guid: 619965807ede45d4598eaf5df12c860d, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

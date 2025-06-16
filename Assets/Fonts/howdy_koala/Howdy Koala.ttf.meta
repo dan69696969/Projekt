@@ -1,0 +1,22 @@
+fileFormatVersion: 2
+guid: 6f77b26ed4ca0e64aac518e78f18d5ae
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontNames:
+  - Howdy Koala
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: ae3f350f4f4dcf340a31e0c6be69474f, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

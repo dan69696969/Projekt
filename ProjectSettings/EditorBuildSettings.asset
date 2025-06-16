@@ -1,0 +1,65 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1045 &1
+EditorBuildSettings:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Scenes:
+  - enabled: 0
+    path: 
+    guid: 00000000000000000000000000000000
+  - enabled: 0
+    path: 
+    guid: 00000000000000000000000000000000
+  - enabled: 1
+    path: Assets/Scenes/MainMenu.unity
+    guid: 11cd34d80b07ed1408a24f93388eb5bb
+  - enabled: 1
+    path: Assets/Scenes/StageScene.unity
+    guid: 15cafeb21a87eb8488864d11920b75e3
+  - enabled: 1
+    path: Assets/Scenes/x/faillspring.unity
+    guid: 3c84ca30ef28d7d47ae36fe4c27a81fb
+  - enabled: 1
+    path: Assets/Scenes/Summer.unity
+    guid: 0e2d89bbe643def498a4150a3abd9014
+  - enabled: 1
+    path: Assets/Scenes/Fall.unity
+    guid: dd278e500615cf546bfbb78887214b57
+  - enabled: 1
+    path: Assets/Scenes/Winter.unity
+    guid: 475b5b5a54c3d8b4fb721458b995469a
+  - enabled: 1
+    path: Assets/Scenes/Win/WinterSuccess.unity
+    guid: bb8688bef3c02944d8bceb4fa6b37140
+  - enabled: 1
+    path: Assets/Scenes/Lose/FallFailure.unity
+    guid: ef997953db4985a4188b8c4a886b266b
+  - enabled: 1
+    path: Assets/Scenes/Lose/SpringFailure.unity
+    guid: ac588348d549e50449c8cd9a753829a9
+  - enabled: 1
+    path: Assets/Scenes/Lose/SummerFailure.unity
+    guid: 799e9e4c69ffc944d89cb642dbee8004
+  - enabled: 1
+    path: Assets/Scenes/Lose/WinterFailure.unity
+    guid: 98e5ae16fd29a3140a4d7403f783696f
+  - enabled: 1
+    path: Assets/Scenes/Win/FallSuccess.unity
+    guid: 0d56c42229e8d1540a3a055ea9b1e26e
+  - enabled: 1
+    path: Assets/Scenes/Win/SpringSuccess.unity
+    guid: e6264399c975216448baad0e099ea116
+  - enabled: 1
+    path: Assets/Scenes/Win/SummerSuccess.unity
+    guid: 7a98673b27735ee4f9785383e7610b3b
+  - enabled: 1
+    path: Assets/Scenes/Spring.unity
+    guid: 80ada50b603434c449fa9f8aeeb6ed0d
+  - enabled: 1
+    path: Assets/Scenes/CodeScene.unity
+    guid: 97c705dedf7969548976c7595f54350c
+  - enabled: 1
+    path: Assets/Scenes/WINWINWIN.unity
+    guid: 35960a3fedde7744ab0bb8de95866acd
+  m_configObjects: {}
