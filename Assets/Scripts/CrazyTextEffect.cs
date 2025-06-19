@@ -38,6 +38,7 @@ public class CrazyTextEffect : MonoBehaviour
             if (!textInfo.characterInfo[i].isVisible)
                 continue;
 
+             
             int vertexIndex = textInfo.characterInfo[i].vertexIndex;
             int materialIndex = textInfo.characterInfo[i].materialReferenceIndex;
 
