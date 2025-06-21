@@ -62,4 +62,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/WINWINWIN.unity
     guid: 35960a3fedde7744ab0bb8de95866acd
+  - enabled: 1
+    path: Assets/Scenes/Choose mode.unity
+    guid: 5b6d610009d76ed418a187313c06ec9c
+  - enabled: 1
+    path: Assets/Scenes/Endless.unity
+    guid: ffa39acb66be4aa4eac66267df939f63
   m_configObjects: {}
