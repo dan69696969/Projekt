@@ -23,13 +23,13 @@ public class PlusObject : MonoBehaviour
 
         transform.SetParent(canvas.transform);
 
-        x = Random.Range(-150, 200);
-        y = Random.Range(-400, 150);
+        x = Random.Range(-550, - 200);
+        y = Random.Range(-800, -250);
 
         transform.localPosition = new Vector3(x, y, 0);
     }
 
-    // Update is called once per frame
+    // Update is called once per frame 
     void Update()
     {
         timer += Time.deltaTime;
