@@ -65,7 +65,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Choose mode.unity
     guid: 5b6d610009d76ed418a187313c06ec9c
+  - enabled: 0
+    path: 
+    guid: 00000000000000000000000000000000
   - enabled: 1
-    path: Assets/Scenes/Endless.unity
-    guid: ffa39acb66be4aa4eac66267df939f63
+    path: Assets/Scenes/Achievements.unity
+    guid: af643d8345080ee4e8887bf129c7db5e
   m_configObjects: {}

@@ -17,7 +17,7 @@ public class Rainbow : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
     {
         if (isHovering && image != null)
         {
-            hue += Time.deltaTime * 0.2f;
+            hue += Time.deltaTime * 0.5f;
             if (hue > 1f) hue = 0f;
             image.color = Color.HSVToRGB(hue, 1f, 1f);
         }
