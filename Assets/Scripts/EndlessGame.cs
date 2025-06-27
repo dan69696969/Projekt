@@ -66,6 +66,7 @@ public class EndlessGame : MonoBehaviour
     public AchievementSO achScore1;
     public AchievementSO achScore100;
     public AchievementSO achScore500;
+    public AchievementSO achScore5000;
 
     void Start()
     {
@@ -145,6 +146,11 @@ public class EndlessGame : MonoBehaviour
         {
             achievement3 = true;
             AchievementManager.Instance.UnlockAchievement(achScore500);
+        }
+        if (!achievement3 && currentScore >= 5000)
+        {
+            achievement3 = true;
+            AchievementManager.Instance.UnlockAchievement(achScore5000);
         }
 
 
