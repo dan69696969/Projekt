@@ -23,8 +23,8 @@ public class PlusObject : MonoBehaviour
 
         transform.SetParent(canvas.transform);
 
-        x = Random.Range(-550, - 200);
-        y = Random.Range(-800, -250);
+        x = Random.Range(-300, 300);
+        y = Random.Range(-300, 300);
 
         transform.localPosition = new Vector3(x, y, 0);
     }

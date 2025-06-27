@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f5917cfc0e3c9f944902bb6671a73ff1, type: 3}
-  m_Name: ClickMaster
+  m_Name: ClickRookie
   m_EditorClassIdentifier: 
-  id: CLICK_MASTER
-  title: Click master
-  description: 'kliknul jsi 1000X '
+  id: CLICK100
+  title: Click Rookie
+  description: "Z\xEDskal  jsi 100 bod\xEDk\u016F!!!"
   icon: {fileID: -2652327829572825525, guid: a5e645d0b2507ac42807ef8e886f7d45, type: 3}
   type: 1
-  goalValue: 1000
+  goalValue: 100

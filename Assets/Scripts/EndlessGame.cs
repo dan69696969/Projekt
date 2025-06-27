@@ -63,7 +63,9 @@ public class EndlessGame : MonoBehaviour
     public bool nowIsEvent;
     public GameObject goldButton;
 
-
+    public AchievementSO achScore1;
+    public AchievementSO achScore100;
+    public AchievementSO achScore500;
 
     void Start()
     {
@@ -127,6 +129,23 @@ public class EndlessGame : MonoBehaviour
         PlayerPrefs.SetInt("bestScore", bestScore);
 
 
+        if (!achievement1 && currentScore >= 1)
+        {
+            achievement1 = true;
+            AchievementManager.Instance.UnlockAchievement(achScore1);
+        }
+
+        if (!achievement2 && currentScore >= 100)
+        {
+            achievement2 = true;
+            AchievementManager.Instance.UnlockAchievement(achScore100);
+        }
+
+        if (!achievement3 && currentScore >= 500)
+        {
+            achievement3 = true;
+            AchievementManager.Instance.UnlockAchievement(achScore500);
+        }
 
 
         if (!achievement1 && currentScore >= 50) achievement1 = true;

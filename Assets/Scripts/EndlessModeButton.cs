@@ -5,6 +5,6 @@ public class EndlessModeButton : MonoBehaviour
 {
     public void LoadScene()
     {
-        SceneManager.LoadScene(18);
+        SceneManager.LoadScene(19);
     }
 }

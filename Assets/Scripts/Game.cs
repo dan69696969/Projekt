@@ -104,26 +104,26 @@ public class Game : MonoBehaviour
         amount2Text.text = $"Level 2: {amount2}x profit: {amount2Profit}/s";
         amount3Text.text = $"Level 3: {amount3}x profit: {amount3Profit}/s";
 
-        /* === NOVÉ: podmínky pro odemknutí achievementù === */
-        if (!achievement1 && currentScore >= 50)
-        {
-            achievement1 = true;
-            AchievementManager.Instance.UnlockAchievement(achScore50);
-        }
+        /*   === NOVÉ: podmínky pro odemknutí achievementù === 
+          if (!achievement1 && currentScore >= 50)
+          {
+              achievement1 = true;
+              AchievementManager.Instance.UnlockAchievement(achScore50);
+          }
 
-        if (!achievement2 && currentScore >= 500)
-        {
-            achievement2 = true;
-            AchievementManager.Instance.UnlockAchievement(achScore500);
-        }
+          if (!achievement2 && currentScore >= 500)
+          {
+              achievement2 = true;
+              AchievementManager.Instance.UnlockAchievement(achScore500);
+          }
 
-        if (!achievement3 && currentScore >= 5000)
-        {
-            achievement3 = true;
-            AchievementManager.Instance.UnlockAchievement(achScore5000);
-        }
-        /* ================================================= */
+          if (!achievement3 && currentScore >= 5000)
+          {
+              achievement3 = true;
+              AchievementManager.Instance.UnlockAchievement(achScore5000);
+          }
 
+          */
         image1.color = achievement1 ? new Color(1f, 1f, 1f, 1f) : new Color(0.2f, 0.2f, 0.2f, 0.2f);
         image2.color = achievement2 ? new Color(1f, 1f, 1f, 1f) : new Color(0.2f, 0.2f, 0.2f, 0.2f);
         image3.color = achievement3 ? new Color(1f, 1f, 1f, 1f) : new Color(0.2f, 0.2f, 0.2f, 0.2f);

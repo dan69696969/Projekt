@@ -4989,6 +4989,9 @@ MonoBehaviour:
   image3: {fileID: 0}
   nowIsEvent: 0
   goldButton: {fileID: 0}
+  achScore50: {fileID: 0}
+  achScore500: {fileID: 0}
+  achScore5000: {fileID: 0}
 --- !u!1 &1590587483
 GameObject:
   m_ObjectHideFlags: 0
@@ -6132,6 +6135,9 @@ MonoBehaviour:
   image3: {fileID: 0}
   nowIsEvent: 0
   goldButton: {fileID: 0}
+  achScore50: {fileID: 0}
+  achScore500: {fileID: 0}
+  achScore5000: {fileID: 0}
 --- !u!1 &2016215072
 GameObject:
   m_ObjectHideFlags: 0

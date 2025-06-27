@@ -539,7 +539,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1708740681}
   m_HandleRect: {fileID: 1708740680}
   m_Direction: 2
-  m_Value: 1
+  m_Value: 0.9999999
   m_Size: 0.40316638
   m_NumberOfSteps: 0
   m_OnValueChanged:
@@ -1292,7 +1292,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cb1c80cb6cff7014bbde2a2f40c5a1a7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  game: {fileID: 2128401998}
+  game: {fileID: 0}
   upgradeText: {fileID: 1609082263}
   upgradeCost: 50
 --- !u!1 &257779825
@@ -1378,7 +1378,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2128401998}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: Game, Assembly-CSharp
         m_MethodName: Shop1
         m_Mode: 1
@@ -2137,7 +2137,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2128401998}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: Game, Assembly-CSharp
         m_MethodName: Shop2
         m_Mode: 1
@@ -2349,7 +2349,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2128401998}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: Game, Assembly-CSharp
         m_MethodName: Shop1
         m_Mode: 1
@@ -2665,7 +2665,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cb1c80cb6cff7014bbde2a2f40c5a1a7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  game: {fileID: 2128401998}
+  game: {fileID: 0}
   upgradeText: {fileID: 1768196208}
   upgradeCost: 50
 --- !u!114 &553596904
@@ -4225,7 +4225,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 792.44, y: 447.26}
+  m_AnchoredPosition: {x: 766.74, y: 429.27}
   m_SizeDelta: {x: 247.787, y: 160.352}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &985158355
@@ -4494,7 +4494,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cb1c80cb6cff7014bbde2a2f40c5a1a7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  game: {fileID: 2128401998}
+  game: {fileID: 0}
   upgradeText: {fileID: 2127348108}
   upgradeCost: 50
 --- !u!114 &999757178
@@ -4753,7 +4753,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2128401998}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: Game, Assembly-CSharp
         m_MethodName: Shop1
         m_Mode: 1
@@ -4855,7 +4855,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cb1c80cb6cff7014bbde2a2f40c5a1a7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  game: {fileID: 2128401998}
+  game: {fileID: 0}
   upgradeText: {fileID: 1085129742}
   upgradeCost: 50
 --- !u!114 &1064996023
@@ -5035,7 +5035,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2128401998}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: Game, Assembly-CSharp
         m_MethodName: Shop1
         m_Mode: 1
@@ -5337,7 +5337,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2128401998}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: Game, Assembly-CSharp
         m_MethodName: Shop1
         m_Mode: 1
@@ -6979,11 +6979,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8948961942402484082, guid: 48d0a5e232d45f3488a2a0ac967440b1, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 649
+      value: 688.04
       objectReference: {fileID: 0}
     - target: {fileID: 8948961942402484082, guid: 48d0a5e232d45f3488a2a0ac967440b1, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 551.1
+      value: 660.35
       objectReference: {fileID: 0}
     - target: {fileID: 8948961942402484082, guid: 48d0a5e232d45f3488a2a0ac967440b1, type: 3}
       propertyPath: m_LocalPosition.x
@@ -7015,11 +7015,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8948961942402484082, guid: 48d0a5e232d45f3488a2a0ac967440b1, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -443.59998
+      value: -281.88
       objectReference: {fileID: 0}
     - target: {fileID: 8948961942402484082, guid: 48d0a5e232d45f3488a2a0ac967440b1, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -125.39997
+      value: -154.9
       objectReference: {fileID: 0}
     - target: {fileID: 8948961942402484082, guid: 48d0a5e232d45f3488a2a0ac967440b1, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -7048,14 +7048,14 @@ PrefabInstance:
     - target: {fileID: 8948961942402484083, guid: 48d0a5e232d45f3488a2a0ac967440b1, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 2128401998}
+      objectReference: {fileID: 0}
     - target: {fileID: 8948961942402484083, guid: 48d0a5e232d45f3488a2a0ac967440b1, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 8948961942402484083, guid: 48d0a5e232d45f3488a2a0ac967440b1, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: Hit
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 8948961942402484083, guid: 48d0a5e232d45f3488a2a0ac967440b1, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
@@ -7082,50 +7082,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!1 &1666589770
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1666589772}
-  - component: {fileID: 1666589771}
-  m_Layer: 0
-  m_Name: AchievementManager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1666589771
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1666589770}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e290936d2226bb04690a10566c737234, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  popupPrefab: {fileID: 40133191478567283, guid: dd907f6309ba7764e9da0da7e3c97c07, type: 3}
---- !u!4 &1666589772
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1666589770}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 253.87306, y: 121.06653, z: -161.58505}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 9
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1690696541
 GameObject:
   m_ObjectHideFlags: 0
@@ -7310,6 +7266,50 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1708740679}
   m_CullTransparentMesh: 1
+--- !u!1 &1715245187
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1715245189}
+  - component: {fileID: 1715245188}
+  m_Layer: 0
+  m_Name: AchievementManager.
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1715245188
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1715245187}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e290936d2226bb04690a10566c737234, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  popupPrefab: {fileID: 40133191478567283, guid: dd907f6309ba7764e9da0da7e3c97c07, type: 3}
+--- !u!4 &1715245189
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1715245187}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -120.22891, y: 67.12778, z: -14.737662}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 9
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1722156691
 GameObject:
   m_ObjectHideFlags: 0
@@ -7555,7 +7555,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2128401998}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: Game, Assembly-CSharp
         m_MethodName: GetReward
         m_Mode: 1
@@ -8707,7 +8707,7 @@ MonoBehaviour:
   shop1price: 0
   shop1text: {fileID: 569807201}
   shop2price: 0
-  shop2text: {fileID: 786042385}
+  shop2text: {fileID: 569807201}
   shop3price: 0
   shop3text: {fileID: 261655471}
   amount1Text: {fileID: 2016215074}
@@ -8730,8 +8730,8 @@ MonoBehaviour:
   nowIsEvent: 0
   goldButton: {fileID: 1766482749}
   achScore50: {fileID: 11400000, guid: 10438c1ffd891a942b48d373a80ec310, type: 2}
-  achScore500: {fileID: 11400000, guid: 10438c1ffd891a942b48d373a80ec310, type: 2}
-  achScore5000: {fileID: 11400000, guid: 10438c1ffd891a942b48d373a80ec310, type: 2}
+  achScore500: {fileID: 11400000, guid: 8197c2214c82d8f42b33c1057f9cdb84, type: 2}
+  achScore5000: {fileID: 11400000, guid: ef77283e85a5ddc4e8256d4293f61573, type: 2}
 --- !u!1 &2128491945
 GameObject:
   m_ObjectHideFlags: 0
@@ -8815,7 +8815,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2128401998}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: Game, Assembly-CSharp
         m_MethodName: Shop3
         m_Mode: 1
