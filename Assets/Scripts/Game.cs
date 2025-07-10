@@ -139,6 +139,8 @@ public class Game : MonoBehaviour
             StartCoroutine(WaitForEvent());
         }
 
+
+
         if (nowIsEvent && !goldButton.activeSelf)
         {
             goldButton.SetActive(true);

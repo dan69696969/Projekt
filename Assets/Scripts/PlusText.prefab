@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 3096506158238627731}
   - component: {fileID: 3096506158238627733}
   - component: {fileID: 3096506158238627730}
-  - component: {fileID: 708267123305195638}
+  - component: {fileID: -5945282651872216291}
   m_Layer: 5
   m_Name: PlusText
   m_TagString: Untagged
@@ -67,7 +67,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 12800000, guid: e3265ab4bf004d28a9537516768c1c75, type: 3}
+    m_Font: {fileID: 12800000, guid: 50e95aeb3b2bf58498eb1909402cf62a, type: 3}
     m_FontSize: 30
     m_FontStyle: 1
     m_BestFit: 0
@@ -80,7 +80,7 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: +
---- !u!114 &708267123305195638
+--- !u!114 &-5945282651872216291
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -89,11 +89,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 3096506158238627728}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a0c169f8cb627914081df9cb9c06f062, type: 3}
+  m_Script: {fileID: 11500000, guid: d9aa9f826535d1a4aa47a98161204a38, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  targetButton: {fileID: 0}
-  thisText: {fileID: 3096506158238627730}
-  spawnRadius: 60
-  lifeTime: 0.5
-  speed: 75

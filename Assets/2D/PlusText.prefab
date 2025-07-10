@@ -7,6 +7,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 708267123305195638, guid: 1b5bd300b40933c40aac65f6525c244d, type: 3}
+      propertyPath: x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 708267123305195638, guid: 1b5bd300b40933c40aac65f6525c244d, type: 3}
+      propertyPath: y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3096506158238627728, guid: 1b5bd300b40933c40aac65f6525c244d, type: 3}
       propertyPath: m_Name
       value: PlusText

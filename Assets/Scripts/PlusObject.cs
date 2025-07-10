@@ -1,46 +1,50 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
 
 public class PlusObject : MonoBehaviour
 {
-    public Text thisText;
+    [Header("Refs")]
+    public Text thisText;                // přetáhni v prefabu
 
-    public GameObject canvas;
-    public int x, y;
+    [Header("Timing & Motion")]
+    public float lifetime = 0.5f;        // jak dlouho žije
+    public float speed = 50f;         // px/s nahoru
 
-    public float timer;
-    public int speed;
+    private float timer = 0f;
+    private Color startColor;
 
-    // Start is called before the first frame update
     void Start()
     {
-        timer = 0;
+        // Canvas & pozice
+        GameObject canvas = GameObject.Find("Canvas1");
+        transform.SetParent(canvas.transform, false);
 
-        //canvas = GameObject.Find("Canvas");
-        canvas = GameObject.Find("Canvas1");
+        // náhodný offset
+        transform.localPosition = new Vector3(
+            Random.Range(-200, 200),
+            Random.Range(-300, 100),
+            0f);
 
-        transform.SetParent(canvas.transform);
+        // nastav text podle aktuálního hitPower
+        thisText.text = "+" + Game.hitPower;
 
-        x = Random.Range(-300, 300);
-        y = Random.Range(-300, 300);
-
-        transform.localPosition = new Vector3(x, y, 0);
+        // uložíme startovní barvu (kvůli alpha lerpu)
+        startColor = thisText.color;
     }
 
-    // Update is called once per frame 
     void Update()
     {
         timer += Time.deltaTime;
 
-        if (timer >= 0.5f)
-        {
-            Destroy(this.gameObject);
-        }
+        // pohyb nahoru
+        transform.localPosition += Vector3.up * speed * Time.deltaTime;
 
-        transform.position = new Vector3(transform.position.x, transform.position.y + Time.deltaTime * speed, 0);
+        // ✨ FADE: lineárně snižujeme alpha
+        float alpha = Mathf.Lerp(1f, 0f, timer / lifetime);
+        thisText.color = new Color(startColor.r, startColor.g, startColor.b, alpha);
 
-        thisText.text = "+" + Game.hitPower;
+        // konec života
+        if (timer >= lifetime)
+            Destroy(gameObject);
     }
 }

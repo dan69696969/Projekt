@@ -4367,6 +4367,9 @@ MonoBehaviour:
   image3: {fileID: 0}
   nowIsEvent: 0
   goldButton: {fileID: 0}
+  achScore50: {fileID: 0}
+  achScore500: {fileID: 0}
+  achScore5000: {fileID: 0}
 --- !u!1 &1590587483
 GameObject:
   m_ObjectHideFlags: 0
@@ -4520,7 +4523,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.074}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0.000015258789, y: -10.47}
+  m_AnchoredPosition: {x: -0.000061035156, y: -10.469681}
   m_SizeDelta: {x: 10.073, y: 12.177}
   m_Pivot: {x: 0.49999994, y: 0.49999994}
 --- !u!114 &1609082263
@@ -5116,7 +5119,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 38.143257, y: 824.8105}
+  m_AnchoredPosition: {x: -165.04, y: 862.32}
   m_SizeDelta: {x: 344.31, y: 309.98}
   m_Pivot: {x: 0.5, y: 0.50000036}
 --- !u!114 &1766482751
@@ -5623,6 +5626,9 @@ MonoBehaviour:
   image3: {fileID: 0}
   nowIsEvent: 0
   goldButton: {fileID: 0}
+  achScore50: {fileID: 0}
+  achScore500: {fileID: 0}
+  achScore5000: {fileID: 0}
 --- !u!1 &2016215072
 GameObject:
   m_ObjectHideFlags: 0
@@ -6197,6 +6203,9 @@ MonoBehaviour:
   image3: {fileID: 623325567}
   nowIsEvent: 0
   goldButton: {fileID: 1766482749}
+  achScore50: {fileID: 0}
+  achScore500: {fileID: 0}
+  achScore5000: {fileID: 0}
 --- !u!1 &2128491945
 GameObject:
   m_ObjectHideFlags: 0
