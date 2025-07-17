@@ -39,6 +39,30 @@ public class EndlessGame : MonoBehaviour
     public int amount3;
     public float amount3Profit;
 
+    public int shopAprice;
+    public Text shopAtext;
+    public int amountA;
+    public float amountAProfit;
+    public Text amountAText;
+
+    public int shopBprice;
+    public Text shopBtext;
+    public int amountB;
+    public float amountBProfit;
+    public Text amountBText;
+
+    public int shopCprice;
+    public Text shopCtext;
+    public int amountC;
+    public float amountCProfit;
+    public Text amountCText;
+
+    public int shopDprice;
+    public Text shopDtext;
+    public int amountD;
+    public float amountDProfit;
+    public Text amountDText;
+
     private float scoreThreshold = 50;
     private int lastBackgroundIndex = 0;
 
@@ -48,10 +72,12 @@ public class EndlessGame : MonoBehaviour
     public bool achievement1;
     public bool achievement2;
     public bool achievement3;
+    public bool achievement4;
 
     public Image image1;
     public Image image2;
     public Image image3;
+    public Image image4;
 
     public bool nowIsEvent;
     public GameObject goldButton;
@@ -64,13 +90,28 @@ public class EndlessGame : MonoBehaviour
 
     void Start()
     {
-        // Naètení dat
         currentScore = PlayerPrefs.GetFloat("currentScore", 0);
         bestScore = PlayerPrefs.GetInt("bestScore", 0);
 
         shop1price = PlayerPrefs.GetInt("shop1price", 50);
         shop2price = PlayerPrefs.GetInt("shop2price", 500);
         shop3price = PlayerPrefs.GetInt("shop3price", 2500);
+
+        shopAprice = PlayerPrefs.GetInt("shop4price", 50);
+        amountA = PlayerPrefs.GetInt("amount4", 0);
+        amountAProfit = PlayerPrefs.GetFloat("amount4Profit", 0);
+
+        shopBprice = PlayerPrefs.GetInt("shop5price", 500);
+        amountB = PlayerPrefs.GetInt("amount5", 0);
+        amountBProfit = PlayerPrefs.GetFloat("amount5Profit", 0);
+
+        shopCprice = PlayerPrefs.GetInt("shop6price", 2500);
+        amountC = PlayerPrefs.GetInt("amount6", 0);
+        amountCProfit = PlayerPrefs.GetFloat("amount6Profit", 0);
+
+        shopDprice = PlayerPrefs.GetInt("shop7price", 10000);
+        amountD = PlayerPrefs.GetInt("amount7", 0);
+        amountDProfit = PlayerPrefs.GetFloat("amount7Profit", 0);
 
         amount1 = PlayerPrefs.GetInt("amount1", 0);
         amount1Profit = PlayerPrefs.GetFloat("amount1Profit", 0);
@@ -82,6 +123,7 @@ public class EndlessGame : MonoBehaviour
         achievement1 = PlayerPrefs.GetInt("achievement1", 0) == 1;
         achievement2 = PlayerPrefs.GetInt("achievement2", 0) == 1;
         achievement3 = PlayerPrefs.GetInt("achievement3", 0) == 1;
+        achievement4 = PlayerPrefs.GetInt("achievement4", 0) == 1;
 
         hitPower = 1;
         scoreIncreasedPerSecond = 1;
@@ -107,18 +149,26 @@ public class EndlessGame : MonoBehaviour
             EventSystem.current.SetSelectedGameObject(mainClickButton.gameObject);
         }
 
-        scoreIncreasedPerSecond = (amount1Profit + amount2Profit + amount3Profit) * Time.deltaTime;
+        scoreIncreasedPerSecond = (amount1Profit + amount2Profit + amount3Profit + amountAProfit + amountBProfit + amountCProfit + amountDProfit) * Time.deltaTime;
         currentScore += scoreIncreasedPerSecond;
 
-        scoreText.text = (int)currentScore + " ";
+        scoreText.text = ((int)currentScore).ToString();
 
-        shop1text.text = " " + shop1price + " ";
-        shop2text.text = " " + shop2price + " ";
-        shop3text.text = " " + shop3price + " ";
+        shop1text.text = shop1price.ToString();
+        shop2text.text = shop2price.ToString();
+        shop3text.text = shop3price.ToString();
+        shopAtext.text = shopAprice.ToString();
+        shopBtext.text = shopBprice.ToString();
+        shopCtext.text = shopCprice.ToString();
+        shopDtext.text = shopDprice.ToString();
 
-        amount1Text.text = "Level 1: " + amount1 + "x profit: " + amount1Profit + "/s";
-        amount2Text.text = "Level 2: " + amount2 + "x profit: " + amount2Profit + "/s";
-        amount3Text.text = "Level 3: " + amount3 + "x profit: " + amount3Profit + "/s";
+        amount1Text.text = $"Level 1: {amount1}x profit: {amount1Profit}/s";
+        amount2Text.text = $"Level 2: {amount2}x profit: {amount2Profit}/s";
+        amount3Text.text = $"Level 3: {amount3}x profit: {amount3Profit}/s";
+        amountAText.text = $"Level 4: {amountA}x profit: {amountAProfit}/s";
+        amountBText.text = $"Level 5: {amountB}x profit: {amountBProfit}/s";
+        amountCText.text = $"Level 6: {amountC}x profit: {amountCProfit}/s";
+        amountDText.text = $"Level 7: {amountD}x profit: {amountDProfit}/s";
 
         if (currentScore > bestScore)
         {
@@ -128,7 +178,6 @@ public class EndlessGame : MonoBehaviour
 
         bestScoreText.text = "Best Score " + bestScore;
 
-        // Achievementy
         if (!achievement1 && currentScore >= 1)
         {
             achievement1 = true;
@@ -147,16 +196,17 @@ public class EndlessGame : MonoBehaviour
             AchievementManager.Instance.UnlockAchievement(achScore500);
             PlayerPrefs.SetInt("achievement3", 1);
         }
-        if (!achievement3 && currentScore >= 5000)
+        if (!achievement4 && currentScore >= 5000)
         {
-            achievement3 = true;
+            achievement4 = true;
             AchievementManager.Instance.UnlockAchievement(achScore5000);
-            PlayerPrefs.SetInt("achievement3", 1);
+            PlayerPrefs.SetInt("achievement4", 1);
         }
 
         image1.color = achievement1 ? Color.white : new Color(0.2f, 0.2f, 0.2f, 0.2f);
         image2.color = achievement2 ? Color.white : new Color(0.2f, 0.2f, 0.2f, 0.2f);
         image3.color = achievement3 ? Color.white : new Color(0.2f, 0.2f, 0.2f, 0.2f);
+        image4.color = achievement4 ? Color.white : new Color(0.2f, 0.2f, 0.2f, 0.2f);
 
         if (!nowIsEvent && goldButton.activeSelf)
         {
@@ -169,7 +219,6 @@ public class EndlessGame : MonoBehaviour
             goldButton.transform.position = new Vector3(UnityEngine.Random.Range(0, 751), UnityEngine.Random.Range(0, 401), 0);
         }
 
-        // Uložení skóre
         PlayerPrefs.SetFloat("currentScore", currentScore);
     }
 
@@ -210,7 +259,7 @@ public class EndlessGame : MonoBehaviour
         if (currentScore >= shop1price)
         {
             currentScore -= shop1price;
-            amount1 += 1;
+            amount1++;
             amount1Profit += 1;
             x += 1;
             shop1price += 25;
@@ -219,10 +268,6 @@ public class EndlessGame : MonoBehaviour
             PlayerPrefs.SetFloat("amount1Profit", amount1Profit);
             PlayerPrefs.SetInt("shop1price", shop1price);
         }
-        else
-        {
-            Debug.Log("Málo penìz!");
-        }
     }
 
     public void Shop2()
@@ -230,7 +275,7 @@ public class EndlessGame : MonoBehaviour
         if (currentScore >= shop2price)
         {
             currentScore -= shop2price;
-            amount2 += 1;
+            amount2++;
             amount2Profit += 5;
             x += 5;
             shop2price += 500;
@@ -239,10 +284,6 @@ public class EndlessGame : MonoBehaviour
             PlayerPrefs.SetFloat("amount2Profit", amount2Profit);
             PlayerPrefs.SetInt("shop2price", shop2price);
         }
-        else
-        {
-            Debug.Log("Málo penìz!");
-        }
     }
 
     public void Shop3()
@@ -250,7 +291,7 @@ public class EndlessGame : MonoBehaviour
         if (currentScore >= shop3price)
         {
             currentScore -= shop3price;
-            amount3 += 1;
+            amount3++;
             amount3Profit += 25;
             x += 25;
             shop3price += 2500;
@@ -259,9 +300,69 @@ public class EndlessGame : MonoBehaviour
             PlayerPrefs.SetFloat("amount3Profit", amount3Profit);
             PlayerPrefs.SetInt("shop3price", shop3price);
         }
-        else
+    }
+
+    public void ShopA()
+    {
+        if (currentScore >= shopAprice)
         {
-            Debug.Log("Málo penìz!");
+            currentScore -= shopAprice;
+            amountA++;
+            amountAProfit += 1;
+            x += 1;
+            shopAprice += 25;
+
+            PlayerPrefs.SetInt("amount4", amountA);
+            PlayerPrefs.SetFloat("amount4Profit", amountAProfit);
+            PlayerPrefs.SetInt("shop4price", shopAprice);
+        }
+    }
+
+    public void ShopB()
+    {
+        if (currentScore >= shopBprice)
+        {
+            currentScore -= shopBprice;
+            amountB++;
+            amountBProfit += 5;
+            x += 5;
+            shopBprice += 500;
+
+            PlayerPrefs.SetInt("amount5", amountB);
+            PlayerPrefs.SetFloat("amount5Profit", amountBProfit);
+            PlayerPrefs.SetInt("shop5price", shopBprice);
+        }
+    }
+
+    public void ShopC()
+    {
+        if (currentScore >= shopCprice)
+        {
+            currentScore -= shopCprice;
+            amountC++;
+            amountCProfit += 25;
+            x += 25;
+            shopCprice += 1250;
+
+            PlayerPrefs.SetInt("amount6", amountC);
+            PlayerPrefs.SetFloat("amount6Profit", amountCProfit);
+            PlayerPrefs.SetInt("shop6price", shopCprice);
+        }
+    }
+
+    public void ShopD()
+    {
+        if (currentScore >= shopDprice)
+        {
+            currentScore -= shopDprice;
+            amountD++;
+            amountDProfit += 125;
+            x += 125;
+            shopDprice += 5000;
+
+            PlayerPrefs.SetInt("amount7", amountD);
+            PlayerPrefs.SetFloat("amount7Profit", amountDProfit);
+            PlayerPrefs.SetInt("shop7price", shopDprice);
         }
     }
 
