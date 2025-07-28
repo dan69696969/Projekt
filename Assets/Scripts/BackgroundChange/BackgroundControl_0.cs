@@ -1,62 +1,80 @@
-using System.Collections;
+ï»¿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class BackgroundControl_0 : MonoBehaviour
 {
     [Header("BackgroundNum 0 -> 3")]
-    public int backgroundNum = 3; // Rovnou nastavit ètvrtou fázi
+    public int backgroundNum = 0;
     public Sprite[] Layer_Sprites;
     private GameObject[] Layer_Object = new GameObject[5];
     private int max_backgroundNum = 3;
 
-    
+    [Header("Reference na skript s poÄtem kliknutÃ­")]
+    public ClickManager clickManager;
+
+    private int[] thresholds = { 10, 20, 30 };
+    private int currentThresholdIndex = 0;
 
     void Awake()
     {
-        // Ujistíme se, e backgroundNum je správnì nastavenı pøed jakoukoliv inicializací
-        backgroundNum = 3;
-    } 
+        // NaÄti backgroundNum ze savÅ¯
+        backgroundNum = PlayerPrefs.GetInt("BackgroundNum", 0);
+        currentThresholdIndex = backgroundNum; // Aby nezaÄÃ­nalo od 0 znovu
+    }
 
     void Start()
     {
-        // Naètení vrstev pozadí
+        // Najdi vrstvy pozadÃ­
         for (int i = 0; i < Layer_Object.Length; i++)
         {
             Layer_Object[i] = GameObject.Find("Layer_" + i);
 
-            // Pøidat kontrolu, jestli objekt existuje
             if (Layer_Object[i] == null)
             {
                 Debug.LogError("Layer_" + i + " nebyl nalezen!");
             }
         }
 
-        ChangeSprite(); // Naète rovnou 4. fázi
+        ChangeSprite(); // NaÄti poÄÃ¡teÄnÃ­ pozadÃ­
     }
 
     void Update()
     {
-        // Pro prezentaci bez UI
+        // RuÄnÃ­ pÅ™epnutÃ­ pro prezentaci
         if (Input.GetKeyDown(KeyCode.RightArrow)) NextBG();
         if (Input.GetKeyDown(KeyCode.LeftArrow)) BackBG();
+
+        // âŒ Pokud uÅ¾ je maximum dosaÅ¾eno, nic vÃ­c se nedÄ›je
+        if (backgroundNum >= max_backgroundNum)
+            return;
+
+        // AutomatickÃ¡ zmÄ›na podle klikÅ¯
+        if (currentThresholdIndex < thresholds.Length &&
+            clickManager != null &&
+            clickManager.clickCount >= thresholds[currentThresholdIndex])
+        {
+            backgroundNum = currentThresholdIndex + 1;
+            currentThresholdIndex++;
+            PlayerPrefs.SetInt("BackgroundNum", backgroundNum); // ğŸ’¾ uloÅ¾Ã­me stav
+            PlayerPrefs.Save();
+            ChangeSprite();
+        }
     }
 
     void ChangeSprite()
     {
         if (backgroundNum < 0 || backgroundNum > max_backgroundNum) return;
 
-        // Nastavení hlavní vrstvy
+        // Vrstva 0
         Layer_Object[0].GetComponent<SpriteRenderer>().sprite = Layer_Sprites[backgroundNum * 5];
 
-        // Nastavení zbytku vrstev
+        // Zbytek vrstev
         for (int i = 1; i < Layer_Object.Length; i++)
         {
             Sprite changeSprite = Layer_Sprites[backgroundNum * 5 + i];
             Layer_Object[i].GetComponent<SpriteRenderer>().sprite = changeSprite;
 
-            // Zmìna spriteù i u dìtí
             if (Layer_Object[i].transform.childCount >= 2)
             {
                 Layer_Object[i].transform.GetChild(0).GetComponent<SpriteRenderer>().sprite = changeSprite;
@@ -70,6 +88,9 @@ public class BackgroundControl_0 : MonoBehaviour
         if (backgroundNum < max_backgroundNum)
         {
             backgroundNum++;
+            currentThresholdIndex = backgroundNum;
+            PlayerPrefs.SetInt("BackgroundNum", backgroundNum);
+            PlayerPrefs.Save();
             ChangeSprite();
         }
     }
@@ -79,6 +100,9 @@ public class BackgroundControl_0 : MonoBehaviour
         if (backgroundNum > 0)
         {
             backgroundNum--;
+            currentThresholdIndex = backgroundNum;
+            PlayerPrefs.SetInt("BackgroundNum", backgroundNum);
+            PlayerPrefs.Save();
             ChangeSprite();
         }
     }

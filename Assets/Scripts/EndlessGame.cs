@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -88,8 +88,17 @@ public class EndlessGame : MonoBehaviour
     public AchievementSO achScore5000;
     public AchievementSO achScore50000;
 
+    [Header("Boost Settings")]
+    public Image boostBarImage;
+    private float boostValue = 0f;
+    private float maxBoostValue = 100f;
+    private float boostDecayRate = 15f;
+    private float boostIncreasePerClick = 4f;
+    private bool boostActive = false;
+    private bool boostJustActivated = false;
     void Start()
     {
+
         currentScore = PlayerPrefs.GetFloat("currentScore", 0);
         bestScore = PlayerPrefs.GetInt("bestScore", 0);
 
@@ -140,14 +149,48 @@ public class EndlessGame : MonoBehaviour
             case "02-14": SceneManager.LoadScene("ValentineScene"); break;
             case "12-25": SceneManager.LoadScene("ChristmasScene"); break;
         }
+        
     }
 
     void Update()
     {
-        if (EventSystem.current.currentSelectedGameObject != mainClickButton.gameObject)
+        EventSystem.current.SetSelectedGameObject(mainClickButton.gameObject);
+
+        EventSystem.current.SetSelectedGameObject(mainClickButton.gameObject);
+
+        if (Input.GetKeyDown(KeyCode.W))
         {
-            EventSystem.current.SetSelectedGameObject(mainClickButton.gameObject);
+            currentScore += 1000000;
         }
+
+        // Boost bar klesá pořád, ale když je pod 90, hitPower je normální, když je 90 nebo víc, hitPower je *2
+        boostValue -= boostDecayRate * Time.deltaTime;
+
+        if (boostValue >= maxBoostValue * 0.9f)
+        {
+            // Boost aktivní
+            if (!boostActive)
+            {
+                hitPower *= 2f;
+                boostActive = true;
+            }
+        }
+        else
+        {
+            // Boost není aktivní (pod 90%)
+            if (boostActive)
+            {
+                hitPower /= 2f;
+                boostActive = false;
+            }
+        }
+
+        // Limit na boostValue
+        boostValue = Mathf.Clamp(boostValue, 0f, maxBoostValue);
+
+        if (boostBarImage != null)
+            boostBarImage.fillAmount = boostValue / maxBoostValue;
+
 
         scoreIncreasedPerSecond = (amount1Profit + amount2Profit + amount3Profit + amountAProfit + amountBProfit + amountCProfit + amountDProfit) * Time.deltaTime;
         currentScore += scoreIncreasedPerSecond;
@@ -223,11 +266,16 @@ public class EndlessGame : MonoBehaviour
     }
 
     public void Hit()
-    {
-        currentScore += hitPower;
-        Instantiate(plusObject, transform.position, transform.rotation);
-        CheckBackgroundChange();
-    }
+{
+    currentScore += hitPower;
+    Instantiate(plusObject, transform.position, transform.rotation);
+    CheckBackgroundChange();
+
+    // Přidání do boost baru:
+    boostValue += boostIncreasePerClick;
+    if (boostValue > maxBoostValue)
+        boostValue = maxBoostValue;
+}
 
     IEnumerator Fly()
     {
