@@ -12,7 +12,7 @@ public class CodeScript : MonoBehaviour
     private Dictionary<string, string> codeToScene = new Dictionary<string, string>()
     {
         { "RIZZ", "WINWINWIN" },
-        { "AHOJ", "Scena2" },
+        { "Noob", "Endless" },
         { "SIGMA", "Scena3" },
         { "COW", "MiracleCowScene" }
     };

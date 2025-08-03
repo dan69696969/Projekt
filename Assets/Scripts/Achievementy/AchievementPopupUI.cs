@@ -21,6 +21,7 @@ public class AchievementPopupUI : MonoBehaviour
 
         canvasGroup.alpha = 0;
         gameObject.SetActive(false);
+
     }
 
     public void ShowPopup(AchievementSO achievement)

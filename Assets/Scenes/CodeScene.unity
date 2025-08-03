@@ -1315,8 +1315,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   codeInput: {fileID: 1999752514}
   confirmButton: {fileID: 408755709}
-  correctCode: RIZZ
-  sceneToLoad: WINWINWIN
 --- !u!4 &1785907624
 Transform:
   m_ObjectHideFlags: 0
