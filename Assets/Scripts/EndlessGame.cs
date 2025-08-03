@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections;
+using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
@@ -96,8 +97,16 @@ public class EndlessGame : MonoBehaviour
     private float boostIncreasePerClick = 4f;
     private bool boostActive = false;
     private bool boostJustActivated = false;
+
+    public TMP_Text hitPowerText;
+
+    public int shopPower1Price;
+    public TMP_Text shopPower1Text;
+    public int power1Level;
     void Start()
     {
+        shopPower1Price = PlayerPrefs.GetInt("shopPower1Price", 100);
+        power1Level = PlayerPrefs.GetInt("power1Level", 0);
 
         currentScore = PlayerPrefs.GetFloat("currentScore", 0);
         bestScore = PlayerPrefs.GetInt("bestScore", 0);
@@ -154,9 +163,13 @@ public class EndlessGame : MonoBehaviour
 
     void Update()
     {
+        hitPowerText.text = "Power: " + hitPower.ToString();
+
         EventSystem.current.SetSelectedGameObject(mainClickButton.gameObject);
 
         EventSystem.current.SetSelectedGameObject(mainClickButton.gameObject);
+
+        shopPower1Text.text = shopPower1Price.ToString();
 
         if (Input.GetKeyDown(KeyCode.W))
         {
@@ -411,6 +424,20 @@ public class EndlessGame : MonoBehaviour
             PlayerPrefs.SetInt("amount7", amountD);
             PlayerPrefs.SetFloat("amount7Profit", amountDProfit);
             PlayerPrefs.SetInt("shop7price", shopDprice);
+        }
+    }
+
+    public void ShopPower1()
+    {
+        if (currentScore >= shopPower1Price)
+        {
+            currentScore -= shopPower1Price;
+            power1Level++;
+            hitPower += 1;
+            shopPower1Price += 100;
+
+            PlayerPrefs.SetInt("shopPower1Price", shopPower1Price);
+            PlayerPrefs.SetInt("power1Level", power1Level);
         }
     }
 
