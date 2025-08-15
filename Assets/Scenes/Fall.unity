@@ -1852,7 +1852,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -364.16, y: 51}
+  m_AnchoredPosition: {x: -320, y: -0.8154869}
   m_SizeDelta: {x: 398.102, y: 1.631}
   m_Pivot: {x: 0.41564858, y: 0.5}
 --- !u!114 &617869891
@@ -2542,7 +2542,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0.778}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -335, y: 71}
+  m_AnchoredPosition: {x: -278, y: 17.000011}
   m_SizeDelta: {x: 340.092, y: 62.157}
   m_Pivot: {x: 0.5, y: 0.6978924}
 --- !u!114 &846207079
@@ -3839,6 +3839,10 @@ MonoBehaviour:
   - {fileID: 21300000, guid: e9313620d8b44324ea02f98a3ee892be, type: 3}
   - {fileID: 21300000, guid: ca6841502e6bca24187cacb218fd5561, type: 3}
   - {fileID: 21300000, guid: 0ceb3b7f07f8bff499799cb7cfa69fcd, type: 3}
+  clickManager: {fileID: 0}
+  clickButton: {fileID: 0}
+  buttonNormalSprites: []
+  buttonPressedSprites: []
 --- !u!114 &1312837165
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4955,7 +4959,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -313, y: 75}
+  m_AnchoredPosition: {x: -269, y: 16.096}
   m_SizeDelta: {x: 229.597, y: 32.193}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1722156693

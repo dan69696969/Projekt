@@ -13,6 +13,7 @@ public class EndlessGame : MonoBehaviour
     public Text scoreText;
     public float currentScore;
     public static float hitPower;
+    private float baseHitPower; // základní síla bez boostu
     public float scoreIncreasedPerSecond;
     public float x;
 
@@ -96,17 +97,43 @@ public class EndlessGame : MonoBehaviour
     private float boostDecayRate = 15f;
     private float boostIncreasePerClick = 4f;
     private bool boostActive = false;
-    private bool boostJustActivated = false;
 
     public TMP_Text hitPowerText;
 
+    // ✅ Power shop 1
     public int shopPower1Price;
     public TMP_Text shopPower1Text;
     public int power1Level;
+
+    // ✅ Power shop 2
+    public int shopPower2Price;
+    public TMP_Text shopPower2Text;
+    public int power2Level;
+
+    // ✅ Power shop 3
+    public int shopPower3Price;
+    public TMP_Text shopPower3Text;
+    public int power3Level;
+
+    // ✅ Power shop 4
+    public int shopPower4Price;
+    public TMP_Text shopPower4Text;
+    public int power4Level;
+
     void Start()
     {
+        // Načtení Power shopů
         shopPower1Price = PlayerPrefs.GetInt("shopPower1Price", 100);
         power1Level = PlayerPrefs.GetInt("power1Level", 0);
+
+        shopPower2Price = PlayerPrefs.GetInt("shopPower2Price", 500);
+        power2Level = PlayerPrefs.GetInt("power2Level", 0);
+
+        shopPower3Price = PlayerPrefs.GetInt("shopPower3Price", 2000);
+        power3Level = PlayerPrefs.GetInt("power3Level", 0);
+
+        shopPower4Price = PlayerPrefs.GetInt("shopPower4Price", 10000);
+        power4Level = PlayerPrefs.GetInt("power4Level", 0);
 
         currentScore = PlayerPrefs.GetFloat("currentScore", 0);
         bestScore = PlayerPrefs.GetInt("bestScore", 0);
@@ -143,7 +170,15 @@ public class EndlessGame : MonoBehaviour
         achievement3 = PlayerPrefs.GetInt("achievement3", 0) == 1;
         achievement4 = PlayerPrefs.GetInt("achievement4", 0) == 1;
 
-        hitPower = 1;
+        // Výpočet baseHitPower z levelů všech power shopů
+        baseHitPower = 1f
+            + power1Level * 0.1f
+            + power2Level * 0.5f
+            + power3Level * 1f
+            + power4Level * 5f;
+
+        hitPower = baseHitPower;
+
         scoreIncreasedPerSecond = 1;
         x = 0f;
 
@@ -158,52 +193,41 @@ public class EndlessGame : MonoBehaviour
             case "02-14": SceneManager.LoadScene("ValentineScene"); break;
             case "12-25": SceneManager.LoadScene("ChristmasScene"); break;
         }
-        
     }
 
     void Update()
     {
-        hitPowerText.text = "Power: " + hitPower.ToString();
-
-        EventSystem.current.SetSelectedGameObject(mainClickButton.gameObject);
+        hitPowerText.text = "Power: " + baseHitPower.ToString("F1");
 
         EventSystem.current.SetSelectedGameObject(mainClickButton.gameObject);
 
         shopPower1Text.text = shopPower1Price.ToString();
+        shopPower2Text.text = shopPower2Price.ToString();
+        shopPower3Text.text = shopPower3Price.ToString();
+        shopPower4Text.text = shopPower4Price.ToString();
 
         if (Input.GetKeyDown(KeyCode.W))
-        {
             currentScore += 1000000;
-        }
 
-        // Boost bar klesá pořád, ale když je pod 90, hitPower je normální, když je 90 nebo víc, hitPower je *2
+        // Boost decay
         boostValue -= boostDecayRate * Time.deltaTime;
+        boostValue = Mathf.Clamp(boostValue, 0f, maxBoostValue);
 
         if (boostValue >= maxBoostValue * 0.9f)
         {
-            // Boost aktivní
-            if (!boostActive)
-            {
-                hitPower *= 2f;
-                boostActive = true;
-            }
+            boostActive = true;
+            hitPower = baseHitPower * 2f;
+            if (boostBarImage != null) boostBarImage.color = Color.white;
         }
         else
         {
-            // Boost není aktivní (pod 90%)
-            if (boostActive)
-            {
-                hitPower /= 2f;
-                boostActive = false;
-            }
+            boostActive = false;
+            hitPower = baseHitPower;
+            if (boostBarImage != null) boostBarImage.color = new Color(0.5f, 0.5f, 0.5f, 1f);
         }
-
-        // Limit na boostValue
-        boostValue = Mathf.Clamp(boostValue, 0f, maxBoostValue);
 
         if (boostBarImage != null)
             boostBarImage.fillAmount = boostValue / maxBoostValue;
-
 
         scoreIncreasedPerSecond = (amount1Profit + amount2Profit + amount3Profit + amountAProfit + amountBProfit + amountCProfit + amountDProfit) * Time.deltaTime;
         currentScore += scoreIncreasedPerSecond;
@@ -279,25 +303,14 @@ public class EndlessGame : MonoBehaviour
     }
 
     public void Hit()
-{
-    currentScore += hitPower;
-    Instantiate(plusObject, transform.position, transform.rotation);
-    CheckBackgroundChange();
-
-    // Přidání do boost baru:
-    boostValue += boostIncreasePerClick;
-    if (boostValue > maxBoostValue)
-        boostValue = maxBoostValue;
-}
-
-    IEnumerator Fly()
     {
-        for (int i = 0; i < 19; i++)
-        {
-            yield return new WaitForSeconds(0.01f);
-            plusObject.transform.position += new Vector3(0, 2, 0);
-        }
-        plusObject.SetActive(false);
+        currentScore += hitPower;
+        Instantiate(plusObject, transform.position, transform.rotation);
+        CheckBackgroundChange();
+
+        boostValue += boostIncreasePerClick;
+        if (boostValue > maxBoostValue)
+            boostValue = maxBoostValue;
     }
 
     private void CheckBackgroundChange()
@@ -314,6 +327,8 @@ public class EndlessGame : MonoBehaviour
         currentScore = 0;
         PlayerPrefs.SetFloat("currentScore", currentScore);
     }
+
+    // ------------------ SHOPY ------------------
 
     public void Shop1()
     {
@@ -427,19 +442,65 @@ public class EndlessGame : MonoBehaviour
         }
     }
 
+    // ------------------ POWER SHOPY ------------------
+
     public void ShopPower1()
     {
         if (currentScore >= shopPower1Price)
         {
             currentScore -= shopPower1Price;
             power1Level++;
-            hitPower += 1;
+            baseHitPower += 0.1f;
             shopPower1Price += 100;
 
             PlayerPrefs.SetInt("shopPower1Price", shopPower1Price);
             PlayerPrefs.SetInt("power1Level", power1Level);
         }
     }
+
+    public void ShopPower2()
+    {
+        if (currentScore >= shopPower2Price)
+        {
+            currentScore -= shopPower2Price;
+            power2Level++;
+            baseHitPower += 0.5f;
+            shopPower2Price += 250;
+
+            PlayerPrefs.SetInt("shopPower2Price", shopPower2Price);
+            PlayerPrefs.SetInt("power2Level", power2Level);
+        }
+    }
+
+    public void ShopPower3()
+    {
+        if (currentScore >= shopPower3Price)
+        {
+            currentScore -= shopPower3Price;
+            power3Level++;
+            baseHitPower += 1f;
+            shopPower3Price += 1000;
+
+            PlayerPrefs.SetInt("shopPower3Price", shopPower3Price);
+            PlayerPrefs.SetInt("power3Level", power3Level);
+        }
+    }
+
+    public void ShopPower4()
+    {
+        if (currentScore >= shopPower4Price)
+        {
+            currentScore -= shopPower4Price;
+            power4Level++;
+            baseHitPower += 5f;
+            shopPower4Price += 5000;
+
+            PlayerPrefs.SetInt("shopPower4Price", shopPower4Price);
+            PlayerPrefs.SetInt("power4Level", power4Level);
+        }
+    }
+
+    // ------------------ EVENT ------------------
 
     public void GetReward()
     {
