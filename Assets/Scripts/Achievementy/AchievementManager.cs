@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using System.Collections.Generic;
 
 public class AchievementManager : MonoBehaviour
 {
@@ -6,12 +7,19 @@ public class AchievementManager : MonoBehaviour
 
     public GameObject popupPrefab;
 
+    [Header("Všechny achievementy")]
+    public AchievementSO[] allAchievements; // Přetáhni sem všechny v inspektoru
+
+    private List<AchievementSO> unlockedAchievements = new List<AchievementSO>();
+    private const string PlayerPrefsKey = "UnlockedAchievements";
+
     void Awake()
     {
         if (Instance == null)
         {
             Instance = this;
             DontDestroyOnLoad(gameObject);
+            LoadAchievements(); // načtení při startu
         }
         else
         {
@@ -19,7 +27,6 @@ public class AchievementManager : MonoBehaviour
         }
     }
 
-    // Metoda pro zobrazení popupu
     public void ShowAchievementPopup(AchievementSO ach)
     {
         Canvas canvas = FindObjectOfType<Canvas>();
@@ -33,13 +40,68 @@ public class AchievementManager : MonoBehaviour
         go.GetComponent<AchievementPopupUI>().ShowPopup(ach);
     }
 
-    // NOVÁ METODA – volaná při odemknutí achievementu
     public void UnlockAchievement(AchievementSO ach)
     {
-        // Tady můžeš přidat další logiku třeba uložení achievementu do PlayerPrefs
+        if (!unlockedAchievements.Contains(ach))
+        {
+            unlockedAchievements.Add(ach);
+            SaveAchievements();
+            Debug.Log("Achievement odemknut: " + ach.name);
+            ShowAchievementPopup(ach);
+        }
+    }
 
-        Debug.Log("Achievement odemknut: " + ach.name);
+    public List<AchievementSO> GetUnlockedAchievements()
+    {
+        return unlockedAchievements;
+    }
 
-        ShowAchievementPopup(ach);
+    private void SaveAchievements()
+    {
+        List<string> ids = new List<string>();
+        foreach (var ach in unlockedAchievements)
+        {
+            ids.Add(ach.id);
+        }
+
+        string saveString = string.Join(",", ids);
+        PlayerPrefs.SetString(PlayerPrefsKey, saveString);
+        PlayerPrefs.Save();
+    }
+
+    private void LoadAchievements()
+    {
+        unlockedAchievements.Clear();
+
+        if (PlayerPrefs.HasKey(PlayerPrefsKey))
+        {
+            string saveString = PlayerPrefs.GetString(PlayerPrefsKey);
+            string[] ids = saveString.Split(',');
+
+            foreach (var id in ids)
+            {
+                if (string.IsNullOrEmpty(id)) continue;
+
+                AchievementSO ach = FindAchievementById(id);
+                if (ach != null)
+                {
+                    unlockedAchievements.Add(ach);
+                }
+                else
+                {
+                    Debug.LogWarning("Achievement s ID " + id + " nebyl nalezen!");
+                }
+            }
+        }
+    }
+
+    private AchievementSO FindAchievementById(string id)
+    {
+        foreach (var ach in allAchievements)
+        {
+            if (ach.id == id)
+                return ach;
+        }
+        return null;
     }
 }
