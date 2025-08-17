@@ -13,7 +13,7 @@ public class EndlessGame : MonoBehaviour
     public Text scoreText;
     public float currentScore;
     public static float hitPower;
-    private float baseHitPower; // základní síla bez boostu
+    private float baseHitPower; 
     public float scoreIncreasedPerSecond;
     public float x;
 
@@ -100,29 +100,29 @@ public class EndlessGame : MonoBehaviour
 
     public TMP_Text hitPowerText;
 
-    // ✅ Power shop 1
+  
     public int shopPower1Price;
     public TMP_Text shopPower1Text;
     public int power1Level;
 
-    // ✅ Power shop 2
+    
     public int shopPower2Price;
     public TMP_Text shopPower2Text;
     public int power2Level;
 
-    // ✅ Power shop 3
+    
     public int shopPower3Price;
     public TMP_Text shopPower3Text;
     public int power3Level;
 
-    // ✅ Power shop 4
+  
     public int shopPower4Price;
     public TMP_Text shopPower4Text;
     public int power4Level;
 
     void Start()
     {
-        // Načtení Power shopů
+       
         shopPower1Price = PlayerPrefs.GetInt("shopPower1Price", 100);
         power1Level = PlayerPrefs.GetInt("power1Level", 0);
 
@@ -170,7 +170,7 @@ public class EndlessGame : MonoBehaviour
         achievement3 = PlayerPrefs.GetInt("achievement3", 0) == 1;
         achievement4 = PlayerPrefs.GetInt("achievement4", 0) == 1;
 
-        // Výpočet baseHitPower z levelů všech power shopů
+        
         baseHitPower = 1f
             + power1Level * 0.1f
             + power2Level * 0.5f
@@ -209,7 +209,7 @@ public class EndlessGame : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.W))
             currentScore += 1000000;
 
-        // Boost decay
+        
         boostValue -= boostDecayRate * Time.deltaTime;
         boostValue = Mathf.Clamp(boostValue, 0f, maxBoostValue);
 
@@ -500,7 +500,7 @@ public class EndlessGame : MonoBehaviour
         }
     }
 
-    // ------------------ EVENT ------------------
+    // ------------------ cislicka----------------
 
     public void GetReward()
     {
