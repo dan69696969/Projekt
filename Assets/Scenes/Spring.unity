@@ -2278,6 +2278,49 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 569807199}
   m_CullTransparentMesh: 1
+--- !u!1 &582413342
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 582413344}
+  - component: {fileID: 582413343}
+  m_Layer: 0
+  m_Name: GameObject
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &582413343
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 582413342}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b9aa055185c3433409d5635db500ba5b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &582413344
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 582413342}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 103.7041, y: 139.75111, z: -34.895027}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 9
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &617869889
 GameObject:
   m_ObjectHideFlags: 0
@@ -4156,6 +4199,10 @@ MonoBehaviour:
   - {fileID: 21300000, guid: f742986c8cfb0f9408700b55894aba73, type: 3}
   - {fileID: 21300000, guid: 072fb9c03f98b8541804c8632eda3b74, type: 3}
   - {fileID: 21300000, guid: 17729fe1353b2f247bf96445ab7798b1, type: 3}
+  clickManager: {fileID: 0}
+  clickButton: {fileID: 0}
+  buttonNormalSprites: []
+  buttonPressedSprites: []
 --- !u!114 &1312837165
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4771,6 +4818,9 @@ MonoBehaviour:
   image3: {fileID: 0}
   nowIsEvent: 0
   goldButton: {fileID: 0}
+  achScore50: {fileID: 0}
+  achScore500: {fileID: 0}
+  achScore5000: {fileID: 0}
 --- !u!1 &1590587483
 GameObject:
   m_ObjectHideFlags: 0
@@ -5912,6 +5962,9 @@ MonoBehaviour:
   image3: {fileID: 0}
   nowIsEvent: 0
   goldButton: {fileID: 0}
+  achScore50: {fileID: 0}
+  achScore500: {fileID: 0}
+  achScore5000: {fileID: 0}
 --- !u!1 &2016215072
 GameObject:
   m_ObjectHideFlags: 0
@@ -6354,6 +6407,9 @@ MonoBehaviour:
   image3: {fileID: 623325567}
   nowIsEvent: 0
   goldButton: {fileID: 1766482749}
+  achScore50: {fileID: 0}
+  achScore500: {fileID: 0}
+  achScore5000: {fileID: 0}
 --- !u!1 &2128491945
 GameObject:
   m_ObjectHideFlags: 0

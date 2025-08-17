@@ -12,8 +12,8 @@ public class CodeScript : MonoBehaviour
     private Dictionary<string, string> codeToScene = new Dictionary<string, string>()
     {
         { "RIZZ", "WINWINWIN" },
-        { "Noob", "Endless" },
-        { "SIGMA", "Scena3" },
+        { "cats", "CatScene" },
+        { "noob", "NoobScene" },
         { "COW", "MiracleCowScene" }
     };
 
@@ -37,19 +37,23 @@ public class CodeScript : MonoBehaviour
 
     private void CheckCode()
     {
-        string enteredCode = codeInput.text.ToUpper().Trim();
+        string enteredCode = codeInput.text.Trim();
 
-        if (codeToScene.ContainsKey(enteredCode))
+        foreach (var pair in codeToScene)
         {
-            SceneManager.LoadScene(codeToScene[enteredCode]);
+            // Ignoruje velká/malá písmena
+            if (string.Equals(enteredCode, pair.Key, System.StringComparison.OrdinalIgnoreCase))
+            {
+                SceneManager.LoadScene(pair.Value);
+                return;
+            }
         }
-        else
-        {
-            if (placeholderText != null)
-                placeholderText.text = "Incorrect code!";
 
-            codeInput.text = "";
-            codeInput.ActivateInputField();
-        }
+        // Špatný kód
+        if (placeholderText != null)
+            placeholderText.text = "Incorrect code!";
+
+        codeInput.text = "";
+        codeInput.ActivateInputField();
     }
 }
