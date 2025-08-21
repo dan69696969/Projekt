@@ -15,6 +15,6 @@ MonoBehaviour:
   id: CLICK1
   title: Click baby
   description: "Z\xEDskal  jsi 1 bod\xEDk!!!"
-  icon: {fileID: -2652327829572825525, guid: a5e645d0b2507ac42807ef8e886f7d45, type: 3}
+  icon: {fileID: 1197287037935432574, guid: a5e645d0b2507ac42807ef8e886f7d45, type: 3}
   type: 1
   goalValue: 1

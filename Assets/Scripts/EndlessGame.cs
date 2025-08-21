@@ -209,26 +209,33 @@ public class EndlessGame : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.W))
             currentScore += 1000000;
 
-        
+        // ---------------- BOOST ----------------
         boostValue -= boostDecayRate * Time.deltaTime;
         boostValue = Mathf.Clamp(boostValue, 0f, maxBoostValue);
 
+        // procento nabití (0 až 1)
+        float t = boostValue / maxBoostValue;
+
+        // barva se interpoluje mezi šedou a bílou
+        if (boostBarImage != null)
+        {
+            boostBarImage.color = Color.Lerp(new Color(0.5f, 0.5f, 0.5f, 1f), Color.white, t);
+            boostBarImage.fillAmount = t;
+        }
+
+        // aktivní boost když skoro plnej
         if (boostValue >= maxBoostValue * 0.9f)
         {
             boostActive = true;
             hitPower = baseHitPower * 2f;
-            if (boostBarImage != null) boostBarImage.color = Color.white;
         }
         else
         {
             boostActive = false;
             hitPower = baseHitPower;
-            if (boostBarImage != null) boostBarImage.color = new Color(0.5f, 0.5f, 0.5f, 1f);
         }
 
-        if (boostBarImage != null)
-            boostBarImage.fillAmount = boostValue / maxBoostValue;
-
+        // ---------------- SCORE ----------------
         scoreIncreasedPerSecond = (amount1Profit + amount2Profit + amount3Profit + amountAProfit + amountBProfit + amountCProfit + amountDProfit) * Time.deltaTime;
         currentScore += scoreIncreasedPerSecond;
 
@@ -258,6 +265,7 @@ public class EndlessGame : MonoBehaviour
 
         bestScoreText.text = "Best Score " + bestScore;
 
+        // ---------------- ACHIEVEMENTS ----------------
         if (!achievement1 && currentScore >= 1)
         {
             achievement1 = true;
@@ -288,6 +296,7 @@ public class EndlessGame : MonoBehaviour
         image3.color = achievement3 ? Color.white : new Color(0.2f, 0.2f, 0.2f, 0.2f);
         image4.color = achievement4 ? Color.white : new Color(0.2f, 0.2f, 0.2f, 0.2f);
 
+        // ---------------- GOLD EVENT ----------------
         if (!nowIsEvent && goldButton.activeSelf)
         {
             goldButton.SetActive(false);
@@ -301,6 +310,7 @@ public class EndlessGame : MonoBehaviour
 
         PlayerPrefs.SetFloat("currentScore", currentScore);
     }
+
 
     public void Hit()
     {
