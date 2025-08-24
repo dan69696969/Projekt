@@ -80,4 +80,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/NoobScene.unity
     guid: 9619203bb38960945845285d13879694
+  - enabled: 1
+    path: Assets/Scenes/PUU.unity
+    guid: c79710e1527e193469257ac8402858f9
   m_configObjects: {}

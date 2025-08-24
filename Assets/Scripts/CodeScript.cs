@@ -14,7 +14,8 @@ public class CodeScript : MonoBehaviour
         { "RIZZ", "WINWINWIN" },
         { "cats", "CatScene" },
         { "noob", "NoobScene" },
-        { "COW", "MiracleCowScene" }
+        { "COW", "MiracleCowScene" },
+        { "PUU", "PUU" }
     };
 
     private Text placeholderText;

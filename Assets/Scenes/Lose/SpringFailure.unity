@@ -359,9 +359,9 @@ GameObject:
   - component: {fileID: 627860521}
   - component: {fileID: 627860520}
   - component: {fileID: 627860524}
-  - component: {fileID: 627860523}
   - component: {fileID: 627860522}
   - component: {fileID: 627860525}
+  - component: {fileID: 627860523}
   m_Layer: 5
   m_Name: Text (TMP)
   m_TagString: Untagged
@@ -508,7 +508,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 627860518}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 445bd8be9489a3c4cbd6763e029c9aed, type: 3}
+  m_Script: {fileID: 11500000, guid: 02a62aebf680be944a94be81bd5d811c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!114 &627860524
@@ -556,7 +556,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 627860523}
-        m_TargetAssemblyTypeName: FallButton, Assembly-CSharp
+        m_TargetAssemblyTypeName: SpringButton, Assembly-CSharp
         m_MethodName: LoadScene
         m_Mode: 1
         m_Arguments:

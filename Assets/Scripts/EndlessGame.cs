@@ -316,7 +316,7 @@ public class EndlessGame : MonoBehaviour
     {
         currentScore += hitPower;
         Instantiate(plusObject, transform.position, transform.rotation);
-        CheckBackgroundChange();
+        //CheckBackgroundChange();
 
         boostValue += boostIncreasePerClick;
         if (boostValue > maxBoostValue)
